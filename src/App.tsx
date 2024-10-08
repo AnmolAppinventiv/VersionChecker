@@ -2,12 +2,12 @@ import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
-    const data = async () => {
+    const checkForUpdates = async () => {
       const response = await fetch("/versions/currentVersion.json");
       const data = await response.json();
       const currentVersion = data.version;
 
-      const previousVersion = currentVersion;
+      const previousVersion = localStorage.getItem("previousVersion");
 
       if (currentVersion && currentVersion !== previousVersion) {
         window.location.reload();
@@ -15,7 +15,11 @@ function App() {
         localStorage.setItem("previousVersion", currentVersion);
       }
     };
-    data();
+
+    const interval = setInterval(checkForUpdates, 3000);
+    checkForUpdates(); 
+
+    return () => clearInterval(interval); 
   }, []);
 
   return (
