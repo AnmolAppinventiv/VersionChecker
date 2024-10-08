@@ -7,7 +7,7 @@ function App() {
       const data = await response.json();
       const currentVersion = data.version;
 
-      const previousVersion = localStorage.getItem("previousVersion");
+      const previousVersion = currentVersion;
 
       if (currentVersion && currentVersion !== previousVersion) {
         window.location.reload();
@@ -15,13 +15,12 @@ function App() {
         localStorage.setItem("previousVersion", currentVersion);
       }
     };
-
     data();
   }, []);
 
   return (
     <>
-      <h6>Appinventiv</h6>
+      <h1>Appinventiv</h1>
     </>
   );
 }
