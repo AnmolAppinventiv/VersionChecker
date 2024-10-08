@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
-    const checkForUpdates = async () => {
+    const checking = async () => {
       const response = await fetch("/versions/currentVersion.json");
       const data = await response.json();
       const currentVersion = data.version;
@@ -15,11 +15,7 @@ function App() {
         localStorage.setItem("previousVersion", currentVersion);
       }
     };
-
-    const interval = setInterval(checkForUpdates, 3000);
-    checkForUpdates(); 
-
-    return () => clearInterval(interval); 
+    checking(); 
   }, []);
 
   return (
