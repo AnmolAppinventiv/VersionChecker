@@ -16,6 +16,7 @@ function App() {
   return (
     <div>
       <h1>{currentVersion ? `CURRENT VERSION IS : ${currentVersion}` : ""}</h1>
+      <h2>Anmol</h2>
     </div>
   );
 }
