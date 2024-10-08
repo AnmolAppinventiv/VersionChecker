@@ -6,11 +6,12 @@ function App() {
     const fetchData = async () => {
       const response = await fetch("/versions/currentVersion.json");
       const data = await response.json();
+
       setCurrentVersion(data.version);
     };
 
     fetchData();
-  }, []);
+  }, [currentVersion]);
 
   console.log(currentVersion);
   return (
