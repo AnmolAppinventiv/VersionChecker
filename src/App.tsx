@@ -4,12 +4,12 @@ function App() {
   const [currentVersion, setCurrentVersion] = useState();
   useEffect(() => {
     setTimeout(() => {
-      const fetchData = async () => {
+      const data = async () => {
         const response = await fetch("/versions/currentVersion.json");
         const data = await response.json();
         setCurrentVersion(data.version);
       };
-      fetchData();
+      data();
     }, 0);
   }, []);
 
