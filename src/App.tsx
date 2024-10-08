@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [currentVersion, setCurrentVersion] = useState();
+  const [previousVersion, setPreviousVersion] = useState();
   useEffect(() => {
     setTimeout(() => {
       const data = async () => {
@@ -9,9 +10,13 @@ function App() {
         const data = await response.json();
         setCurrentVersion(data.version);
       };
-      data();
+      if (currentVersion && previousVersion && currentVersion !== previousVersion) {
+        window.location.reload();
+      } else {
+        data();
+      }
     }, 0);
-  }, []);
+  }, [currentVersion]);
 
   console.log(currentVersion);
   return (
@@ -23,5 +28,5 @@ function App() {
 }
 export default App;
 
-//purana version compare krna hai
-//
+//purana version new version se compare krna hai 
+// agr difference hua toh page apne aap reload krwana hai 
