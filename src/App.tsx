@@ -8,21 +8,20 @@ function App() {
       const currentVersion = data.version;
       const previousVersion = localStorage.getItem("previousVersion");
 
-      if (currentVersion && currentVersion !== previousVersion) {
-        setTimeout(() => {
-            window.location.reload();
-            localStorage.setItem("previousVersion", currentVersion);
-        }, 2000);
-      } else {
+      if (previousVersion && previousVersion != currentVersion) {
+        localStorage.setItem("previousVersion", currentVersion);
+        window.location.reload();
+      } else if (!previousVersion) {
         localStorage.setItem("previousVersion", currentVersion);
       }
     };
-    data(); 
+    data();
   }, []);
 
   return (
     <>
       <h1>Appinventiv</h1>
+      <h2>ram ram</h2>
     </>
   );
 }
