@@ -2,26 +2,27 @@ import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
-    const checking = async () => {
+    const data = async () => {
       const response = await fetch("/versions/currentVersion.json");
       const data = await response.json();
       const currentVersion = data.version;
-
       const previousVersion = localStorage.getItem("previousVersion");
 
       if (currentVersion && currentVersion !== previousVersion) {
-        window.location.reload();
+        setTimeout(() => {
+            window.location.reload();
+            localStorage.setItem("previousVersion", currentVersion);
+        }, 2000);
       } else {
         localStorage.setItem("previousVersion", currentVersion);
       }
     };
-    checking(); 
+    data(); 
   }, []);
 
   return (
     <>
       <h1>Appinventiv</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis dolor molestias vitae?</p>
     </>
   );
 }
