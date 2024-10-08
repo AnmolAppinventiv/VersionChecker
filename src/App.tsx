@@ -10,15 +10,15 @@ function App() {
         setCurrentVersion(data.version);
       };
       fetchData();
-    }, 1000);
-  }, [currentVersion]);
+    }, 0);
+  }, []);
 
   console.log(currentVersion);
   return (
     <>
       <h1>{currentVersion ? `CURRENT VERSION IS : ${currentVersion}` : ""}</h1>
       <h2>Hello World</h2>
-      <p>Hell</p>
+      <p>Helol</p>
     </>
   );
 }
