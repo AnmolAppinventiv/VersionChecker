@@ -17,6 +17,7 @@ function App() {
   return (
     <>
       <h1>{currentVersion ? `CURRENT VERSION IS : ${currentVersion}` : ""}</h1>
+      <h6>Appinventiv</h6>
     </>
   );
 }
