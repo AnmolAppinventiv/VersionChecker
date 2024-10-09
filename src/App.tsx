@@ -10,7 +10,7 @@ function App() {
       const previousVersion = localStorage.getItem("previousVersion");
       if (previousVersion && previousVersion != currentVersion) {
         localStorage.setItem("previousVersion", currentVersion);
-        // window.location.reload();
+        window.location.reload();
       } else if (!previousVersion) {
         localStorage.setItem("previousVersion", currentVersion);
       }
@@ -25,6 +25,7 @@ function App() {
       <p>hogya kya shayad</p>
       <h1>hello</h1>
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero ipsam unde ullam?</p>
+      <h6>Lorem, ipsum.</h6>
     </>
   );
 }
